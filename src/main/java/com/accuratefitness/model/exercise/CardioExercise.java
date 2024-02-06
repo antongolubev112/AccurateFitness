@@ -1,13 +1,23 @@
-package com.accuratefitness.model;
+package com.accuratefitness.model.exercise;
 
-public class Running extends Exercise {
+public abstract class CardioExercise extends Exercise {
     private double distanceKilometers;
     private double speedKilometersPerHour;
-    public Running(double durationMinutes, int averageHeartRate,
+    private double minPerKm;
+    public CardioExercise(String name, double durationMinutes, int averageHeartRate,
                    double distanceKilometers) {
-        super("Running", durationMinutes, averageHeartRate);
+        super(name, durationMinutes, averageHeartRate);
         this.distanceKilometers = distanceKilometers;
         this.speedKilometersPerHour = this.calculateSpeed(distanceKilometers, durationMinutes);
+        this.minPerKm = this.calculateMinPerKm(distanceKilometers, durationMinutes);
+    }
+
+    private double calculateMinPerKm(double distanceKilometers, double durationMinutes) {
+        if (distanceKilometers != 0) {
+            return durationMinutes / distanceKilometers;
+        } else {
+            return 0.0;
+        }
     }
 
     private double calculateSpeed(double distance, double duration) {
@@ -33,4 +43,13 @@ public class Running extends Exercise {
     public void setSpeedKilometersPerHour(double speedKilometersPerHour) {
         this.speedKilometersPerHour = speedKilometersPerHour;
     }
+
+    public double getMinPerKm() {
+        return minPerKm;
+    }
+
+    public void setMinPerKm(double minPerKm) {
+            this.minPerKm = minPerKm;
+    }
 }
+

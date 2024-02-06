@@ -1,5 +1,6 @@
 package com.accuratefitness.model;
 
+import com.accuratefitness.model.exercise.Running;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

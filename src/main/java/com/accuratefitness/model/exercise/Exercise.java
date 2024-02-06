@@ -1,4 +1,4 @@
-package com.accuratefitness.model;
+package com.accuratefitness.model.exercise;
 
 public abstract class Exercise {
     private String name;
